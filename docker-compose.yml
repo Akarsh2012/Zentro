@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: zentro-postgres
+    environment:
+      POSTGRES_DB: zentro
+      POSTGRES_USER: zentro
+      POSTGRES_PASSWORD: zentro
+    ports:
+      - "5432:5432"
+    volumes:
+      - zentro-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zentro -d zentro"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: zentro-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - zentro-redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  zentro-pgdata:
+  zentro-redisdata:

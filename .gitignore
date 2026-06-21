@@ -1,0 +1,29 @@
+# ---- Node / Frontend (zentro-web) ----
+node_modules/
+.pnpm-store/
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+coverage/
+
+# ---- Java / Gradle (zentro-api) ----
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+target/
+*.class
+
+# ---- Env / secrets ----
+.env
+.env.*
+!.env.example
+
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+*.log
