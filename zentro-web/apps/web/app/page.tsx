@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Header from "./components/Header";
 import SmartSearch from "./components/SmartSearch";
 
 const CATEGORIES = [
@@ -25,23 +27,7 @@ const STEPS = [
 export default function Home() {
   return (
     <>
-      <header className="header">
-        <div className="wrap header__inner">
-          <a className="brand" href="/" aria-label="Zentro home">
-            <span className="brand__mark">Z</span>
-            Zentro
-          </a>
-          <nav className="nav" aria-label="Primary">
-            <a href="#how">How it works</a>
-            <a href="#categories">Categories</a>
-            <a href="#partner">For partners</a>
-          </nav>
-          <div className="header__cta">
-            <a className="btn btn--ghost" href="#partner">Become a partner</a>
-            <a className="btn btn--dark" href="#search">Find a service</a>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main id="main">
         {/* HERO */}
@@ -58,9 +44,9 @@ export default function Home() {
                 Zentro understands your request, finds trusted experts near you, and helps you compare.
               </p>
               <div className="hero__cta">
-                <a className="btn btn--primary btn--lg" href="#search">
+                <Link className="btn btn--primary btn--lg" href="/search">
                   Find a service <span className="arrow" aria-hidden="true">→</span>
-                </a>
+                </Link>
                 <a className="btn btn--ghost btn--lg" href="#partner">Become a partner</a>
               </div>
               <div className="hero__meta">
@@ -111,10 +97,10 @@ export default function Home() {
             </div>
             <div className="cats">
               {CATEGORIES.map((c) => (
-                <a className="cat" href="#search" key={c.t}>
+                <Link className="cat" href="/search" key={c.t}>
                   <span className="cat__ic" aria-hidden="true">{c.ic}</span>
                   <span className="cat__t">{c.t}<span>{c.k}</span></span>
-                </a>
+                </Link>
               ))}
               <p className="cats__more">…and more — drivers, engineers, interior designers, consultants. If it's a trusted skill, it belongs on Zentro.</p>
             </div>
@@ -148,7 +134,7 @@ export default function Home() {
                 <div className="cta-half">
                   <h3>Need something fixed today?</h3>
                   <p>Describe it once. Compare verified pros nearby and book in minutes — pay only when you're happy.</p>
-                  <a className="btn btn--primary btn--lg" href="#search">Find a service <span className="arrow" aria-hidden="true">→</span></a>
+                  <Link className="btn btn--primary btn--lg" href="/search">Find a service <span className="arrow" aria-hidden="true">→</span></Link>
                 </div>
                 <div className="cta-rule" />
                 <div className="cta-half">
