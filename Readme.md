@@ -208,7 +208,6 @@ Global Multi-Region Infrastructure
 ### Web Application
 
 - Next.js
-- React
 - TypeScript
 - Tailwind CSS
 - TanStack Query
